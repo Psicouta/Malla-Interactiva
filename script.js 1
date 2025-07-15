@@ -5,7 +5,7 @@ const courses = {
   "Historización De La Psicología": { unlocks: ["Enfoques Psicológicos I", "Enfoques Psicológicos II"] },
   "Fundamentos De Filosofía": { unlocks: ["Análisis De La Realidad Y Pensamiento Crítico"] },
   "Taller De Análisis Y Comprensión De Textos En Ciencias Sociales": { unlocks: ["Análisis De La Realidad Y Pensamiento Crítico"] },
-  "Taller De Habilidades Interpersonales Para El Ejercicio Profesional": {},
+  "Taller De Habilidades Interpersonales Para El Ejercicio Profesional (I)": {},
   "Inglés Instrumental": { unlocks: ["Inglés Instrumental Para Psicología"] },
 
   // Semestre II
@@ -14,7 +14,7 @@ const courses = {
   "Psicobiologia": { unlocks: ["Psicología De La Salud"] },
   "Diversidad Y Derechos Humanos": { unlocks: ["Problemáticas Psicosociales Y Políticas Públicas"] },
   "Gestión Del Conocimiento Y Uso De Tics": { unlocks: ["Taller De Comunicación Efectiva"] },
-  "Taller De Habilidades Interpersonales Para Ejercicio Profesional": { unlocks: ["Fundamentos De Medición Y Evaluación", "Intervención En Grupos Y Equipos"] },
+  "Taller De Habilidades Interpersonales Para Ejercicio Profesional (II)": { unlocks: ["Fundamentos De Medición Y Evaluación", "Intervención En Grupos Y Equipos"] },
 
   // Semestre III
   "Enfoques Psicológicos I": { unlocks: ["Psicología De La Personalidad Y Diferencias Individuales"] },
