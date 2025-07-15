@@ -1,0 +1,65 @@
+const courses = {
+  // Semestre I
+  "Introducción Al Campo Ocupacional": { unlocks: ["Problemáticas Psicosociales Y Políticas Públicas"] },
+  "Procesos Cognitivos Y Afectivos I": { unlocks: ["Psicología Social 1 Cognición Social"] },
+  "Historización De La Psicología": { unlocks: ["Enfoques Psicológicos I", "Enfoques Psicológicos II"] },
+  "Fundamentos De Filosofía": { unlocks: ["Análisis De La Realidad Y Pensamiento Crítico"] },
+  "Taller De Análisis Y Comprensión De Textos En Ciencias Sociales": { unlocks: ["Análisis De La Realidad Y Pensamiento Crítico"] },
+  "Taller De Habilidades Interpersonales Para El Ejercicio Profesional": {},
+  "Inglés Instrumental": { unlocks: ["Inglés Instrumental Para Psicología"] },
+
+  // Semestre II
+  "Procesos Cognitivos Y Afectivos II": {},
+  "Psicología Del Ciclo Vital: Infancia Y Niñez": { unlocks: ["Psicología Del Ciclo Vital: Adolescencia Y Juventud"] },
+  "Psicobiologia": { unlocks: ["Psicología De La Salud"] },
+  "Diversidad Y Derechos Humanos": { unlocks: ["Problemáticas Psicosociales Y Políticas Públicas"] },
+  "Gestión Del Conocimiento Y Uso De Tics": { unlocks: ["Taller De Comunicación Efectiva"] },
+  "Taller De Habilidades Interpersonales Para Ejercicio Profesional": { unlocks: ["Fundamentos De Medición Y Evaluación", "Intervención En Grupos Y Equipos"] },
+
+  // Aquí puedes continuar agregando los demás cursos y relaciones
+};
+
+const grid = document.getElementById("grid");
+const state = {};
+
+function createCell(name) {
+  const div = document.createElement("div");
+  div.className = "cell locked";
+  div.textContent = name;
+  div.onclick = () => toggleCourse(name);
+  grid.appendChild(div);
+  state[name] = { element: div, approved: false };
+}
+
+function toggleCourse(name) {
+  const course = state[name];
+  if (!course || course.element.classList.contains("locked")) return;
+
+  course.approved = !course.approved;
+  course.element.classList.toggle("approved", course.approved);
+
+  // Desbloquear cursos dependientes
+  for (const key in courses) {
+    const prerequisites = Object.keys(courses).filter(k => courses[k].unlocks?.includes(key));
+    const unlocked = prerequisites.every(p => state[p]?.approved);
+    if (state[key] && unlocked) {
+      state[key].element.classList.remove("locked");
+    }
+  }
+}
+
+function initializeGrid() {
+  for (const name in courses) {
+    createCell(name);
+  }
+
+  // Desbloquear cursos sin prerequisitos
+  for (const name in courses) {
+    const hasPrerequisites = Object.keys(courses).some(k => courses[k].unlocks?.includes(name));
+    if (!hasPrerequisites) {
+      state[name].element.classList.remove("locked");
+    }
+  }
+}
+
+initializeGrid();
