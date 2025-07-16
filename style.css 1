@@ -1,83 +1,58 @@
 body {
-  font-family: sans-serif;
-  background-color: #f8f0fa;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 20px;
+  background-color: #f8f4fc;
+  color: #4a148c;
 }
 
 h1 {
   text-align: center;
-  color: #6a1b9a;
   margin-bottom: 30px;
 }
 
-#semesters {
-  display: flex;
-  flex-direction: row;
-  overflow-x: auto;
-  gap: 20px;
-  padding-bottom: 20px;
-}
-
 section {
-  min-width: 250px;
-  flex-shrink: 0;
+  background-color: #f3e5f5;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(186, 104, 200, 0.3);
 }
 
 .grid {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 .cell {
-  background: #f8bbd0;
-  border: 2px solid #ec407a;
-  border-radius: 10px;
-  padding: 14px;
+  background-color: #e1bee7;
+  border: 2px solid #ba68c8;
+  padding: 10px;
   text-align: center;
+  border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
-  color: #4a148c;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-  min-height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  transition: all 0.2s ease;
 }
 
-.cell:hover:not(.blocked):not(.approved) {
-  background: #f48fb1;
+.cell:hover {
+  background-color: #ce93d8;
 }
 
 .cell.blocked {
-  background: #cfcfcf;
-  border-color: #9e9e9e;
-  color: #777;
+  opacity: 0.5;
   cursor: not-allowed;
-  text-decoration: none;
+  background-color: #f3e5f5;
+  border-color: #d1c4e9;
 }
 
 .cell.not-approved {
-  background: #f8bbd0;
+  background-color: #e1bee7;
   color: #4a148c;
-  border-color: #ec407a;
-  text-decoration: none;
 }
 
 .cell.approved {
-  background: #ab47bc;
+  background-color: #ab47bc;
   color: white;
-  border-color: #8e24aa;
   text-decoration: line-through;
-}
-
-h2 {
-  color: #8e24aa;
-  margin-top: 0;
-  font-size: 18px;
-  text-align: center;
-  border-bottom: 2px solid #ce93d8;
-  padding-bottom: 4px;
 }
