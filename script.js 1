@@ -1,3 +1,8 @@
+// script.js
+const courses = {
+  // tu definición anterior aquí...
+};
+
 const semesters = {
   "Semestre I": [
     "Introducción Al Campo Ocupacional",
